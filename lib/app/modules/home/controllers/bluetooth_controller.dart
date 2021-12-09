@@ -285,13 +285,14 @@ class BluetoothController extends GetxController {
         Get.snackbar("Bluetooth", 'Cannot connect, exception occured',
             snackPosition: SnackPosition.BOTTOM);
       }
-      Get.back(closeOverlays: true);
       connection!.input!.listen((_onDataReceived)).onDone(() {
         Get.snackbar("Bluetooth", "Disconnected ",
             snackPosition: SnackPosition.BOTTOM);
         _connect.value = false;
       });
+      Get.back(closeOverlays: true, canPop: false);
     } catch (exception) {
+      Get.back(closeOverlays: true, canPop: false);
       Get.snackbar("Bluetooth", 'Cannot connect, exception occured',
           snackPosition: SnackPosition.BOTTOM);
     }
