@@ -114,7 +114,6 @@ class BluetoothController extends GetxController {
 // API bluetooth ke jws
   //method / Fungsi
   Future sendMessage(String text) async {
-    // text = text.trim();
     if (text.length > 0) {
       try {
         connection!.output.add(Uint8List.fromList(utf8.encode(text)));
@@ -134,14 +133,8 @@ class BluetoothController extends GetxController {
     }
 
     if (this.isConnect() == false) {
-      final hasil = await Get.toNamed('/bluetooth-setting');
-      if (hasil != null) {
-        // print('Connect -> selected ' + hasil.address);
-        if (this.isConnect()) {
-          this.disconect();
-        }
-        await this.connectTo(hasil);
-      } else {
+      var hasil = await Get.toNamed('/bluetooth-setting');
+      if (hasil == null) {
         // print('Connect -> no device selected');
         Get.snackbar(
           "Pesan",
@@ -228,108 +221,27 @@ class BluetoothController extends GetxController {
   }
 
 //==============================================================================
-  Future connectTo(BluetoothDevice hasil) async {
-    if (hasil.isConnected) {
-      _connect.value = false;
-      await connection?.close();
-    }
-    // // BluetoothConnection
-    // await connection!.cancel();
-    // connection = null;
-    // await FlutterBluetoothSerial.instance.;
+  Future<String> connectTo(BluetoothDevice hasil) async {
+    String result;
 
-    //   await FlutterBluetoothSerial.instance
-    //       .removeDeviceBondWithAddress(hasil.address)
-    //       .then((value) {
-    //     // connectTo(hasil);
-    //   });
-
-    //   // await FlutterBluetoothSerial.instance.
-    //   // Future.delayed(const Duration(milliseconds: 1000), () {
-    //   //   connectTo(hasil);
-    //   // });
-    // } else {
-    // name = hasil.name.toString();
-
-    Get.defaultDialog(
-      title: 'Loading',
-      titleStyle: TextStyle(
-        color: Colors.grey[800],
-        fontWeight: FontWeight.bold,
-      ),
-      middleTextStyle: TextStyle(color: Colors.black),
-      radius: 3,
-      contentPadding: EdgeInsets.all(15),
-      content: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          CircularProgressIndicator(
-            color: Colors.amber,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Text('Menyambungkan Perangkat...'),
-        ],
-      ),
-      barrierDismissible: false,
-    );
 // Some simplest connection :F
     try {
       connection = await BluetoothConnection.toAddress(hasil.address);
       if (connection!.isConnected) {
         _connect.value = true;
-        Get.snackbar("Bluetooth", "Connected to " + hasil.name.toString(),
-            snackPosition: SnackPosition.BOTTOM);
+        result = "Connected to " + hasil.name.toString();
       } else {
-        Get.snackbar("Bluetooth", 'Cannot connect, exception occured',
-            snackPosition: SnackPosition.BOTTOM);
+        result = 'Cannot connect, exception occured';
       }
       connection!.input!.listen((_onDataReceived)).onDone(() {
         Get.snackbar("Bluetooth", "Disconnected ",
             snackPosition: SnackPosition.BOTTOM);
         _connect.value = false;
       });
-      Get.back(closeOverlays: true, canPop: false);
     } catch (exception) {
-      Get.back(closeOverlays: true, canPop: false);
-      Get.snackbar("Bluetooth", 'Cannot connect, exception occured',
-          snackPosition: SnackPosition.BOTTOM);
+      result = "Tidak dapat terhubung ke perangkat";
     }
 
-    // await BluetoothConnection.toAddress(hasil.address).then((_connection) {
-    //   Get.snackbar("Bluetooth", "Connected to " + hasil.name.toString(),
-    //       snackPosition: SnackPosition.BOTTOM);
-    //   connection = _connection;
-    //   _connect.value = true;
-    // Get.back(closeOverlays: true);
-    //   connection!.input!.listen(_onDataReceived).onDone(() {
-    //     // Example: Detect which side closed the connection
-    //     // There should be `isDisconnecting` flag to show are we are (locally)
-    //     // in middle of disconnecting process, should be set before calling
-    //     // `dispose`, `finish` or `close`, which all causes to disconnect.
-    //     // If we except the disconnection, `onDone` should be fired as result.
-    //     // If we didn't except this (no flag set), it means closing by remote.
-    //     // if (isDisconnecting) {
-    //     //   print('Disconnecting locally!');
-    //     // }
-    //     //  else {
-    //     //   print('Disconnected remotely!');
-    //     // }
-    //     // if (this.mounted) {
-    //     //   setState(() {});
-    //     // }
-    //     // if (_connect.value == false) {}
-    //     Get.snackbar("Bluetooth", "Disconnected",
-    //         snackPosition: SnackPosition.BOTTOM);
-    //     _connect.value = false;
-    //   });
-    // }).catchError((error) {
-    //   _connect.value = false;
-    //   connection?.dispose();
-    //   Get.snackbar("Bluetooth", "Cannot connect",
-    //       snackPosition: SnackPosition.BOTTOM);
-    //   Get.back(closeOverlays: true);
-    // });
+    return result;
   }
 }

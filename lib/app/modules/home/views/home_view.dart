@@ -214,14 +214,21 @@ class HomeView extends GetView<HomeController> {
                       text: 'Bluetooth',
                       onClick: () async {
                         final hasil = await Get.toNamed('/bluetooth-setting');
-
-                        if (hasil != null) {
-                          if (bt_controller.isConnect()) {
-                            bt_controller.disconect();
-                          }
-
-                          bt_controller.connectTo(hasil);
+                        // final hasil = await Get.toNamed('/bluetooth-setting');
+                        if (hasil == null) {
+                          Get.snackbar(
+                            "Pesan",
+                            "No Device Selected",
+                            snackPosition: SnackPosition.BOTTOM,
+                          );
                         }
+                        // if (hasil != null) {
+                        //   if (bt_controller.isConnect()) {
+                        //     bt_controller.disconect();
+                        //   }
+
+                        //   bt_controller.connectTo(hasil);
+                        // }
                       },
                     ),
                   ],
