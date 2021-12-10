@@ -7,10 +7,11 @@ class AdzanController extends GetxController {
   SharedPreferences? _memory;
   late BluetoothController bluetooth;
 
-  final nama_adzan = ['Subuh', 'Dzuhur', 'Ashar', "Maghrib", "Isya"];
-  final adzan = [4, 4, 4, 4, 4];
+  final nama_adzan = ['Subuh', 'Dzuhur', 'Ashar', "Maghrib", "Isya", "Jumat"];
+  final adzan = [4, 4, 4, 4, 4, 4];
 
   List<TextEditingController> _controller_lama_adzan = [
+    TextEditingController(),
     TextEditingController(),
     TextEditingController(),
     TextEditingController(),

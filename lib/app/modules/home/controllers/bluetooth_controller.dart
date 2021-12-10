@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
@@ -222,9 +221,10 @@ class BluetoothController extends GetxController {
 
 //==============================================================================
   Future<String> connectTo(BluetoothDevice hasil) async {
+    if (_connect.value == true) {
+      await connection!.close();
+    }
     String result;
-
-// Some simplest connection :F
     try {
       connection = await BluetoothConnection.toAddress(hasil.address);
       if (connection!.isConnected) {

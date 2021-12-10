@@ -20,7 +20,7 @@ class BluetoothSettingView extends GetView<BluetoothSettingController> {
             margin: EdgeInsets.only(right: 15, left: 15, top: 15, bottom: 30),
             child: ElevatedButton(
               onPressed: () async {
-                controller.openBluetoothSetting();
+                await controller.openBluetoothSetting();
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.amber[800],

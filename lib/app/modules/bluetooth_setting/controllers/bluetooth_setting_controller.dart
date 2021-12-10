@@ -28,35 +28,36 @@ class BluetoothSettingController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    Timer.periodic(Duration(milliseconds: 500), (timer) {
+    Timer.periodic(Duration(seconds: 1), (timer) {
       reload();
     });
+    Future.delayed(Duration(milliseconds: 200), reload);
   }
 
   @override
   void onReady() {
     super.onReady();
-    reload();
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    this.dispose();
+  }
 
-  void reload() {
-    FlutterBluetoothSerial.instance
-        .getBondedDevices()
-        .then((List<BluetoothDevice> bondedDevices) {
-      devices.value = bondedDevices
-          .map(
-            (device) => _DeviceWithAvailability(
-              device,
-              checkAvailability.value
-                  ? _DeviceAvailability.maybe
-                  : _DeviceAvailability.yes,
-            ),
-          )
-          .toList();
-    });
+  void reload() async {
+    final bondedDevices =
+        await FlutterBluetoothSerial.instance.getBondedDevices();
+    devices.value = bondedDevices
+        .map(
+          (device) => _DeviceWithAvailability(
+            device,
+            checkAvailability.value
+                ? _DeviceAvailability.maybe
+                : _DeviceAvailability.yes,
+          ),
+        )
+        .toList();
+    // print('reload');
   }
 
   List<BluetoothDeviceListEntry> getList() {
@@ -64,7 +65,7 @@ class BluetoothSettingController extends GetxController {
         .map((_device) => BluetoothDeviceListEntry(
               device: _device.device,
               rssi: _device.rssi,
-              enabled: _device.availability == _DeviceAvailability.yes,
+              enabled: true, // _device.availability == _DeviceAvailability.yes,
               onTap: () async {
                 Get.defaultDialog(
                   title: 'Loading',
@@ -104,8 +105,9 @@ class BluetoothSettingController extends GetxController {
         .toList();
   }
 
-  void openBluetoothSetting() {
-    FlutterBluetoothSerial.instance.openSettings();
+  Future openBluetoothSetting() async {
+    await FlutterBluetoothSerial.instance.openSettings();
+    reload();
   }
 
   Future startDisConnect(String address) async {
@@ -122,11 +124,14 @@ class BluetoothSettingController extends GetxController {
 
   // Future<bool> findConnection() async {
   //   bool result = false;
+
   //   List<BluetoothDevice> _conn =
   //       await FlutterBluetoothSerial.instance.getBondedDevices();
   //   _conn.forEach((element) {
+  //     print('element = ${element.name} = ${element.isConnected} ');
   //     if (element.isConnected == true) {
   //       result = true;
+  //       BluetoothConnection.toAddress(element.address).
   //     }
   //   });
   //   return result;

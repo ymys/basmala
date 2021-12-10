@@ -54,6 +54,7 @@ class AdzanView extends GetView<AdzanController> {
                     _Adzan(2),
                     _Adzan(3),
                     _Adzan(4),
+                    _Adzan(5),
                   ],
                 ),
               ],
