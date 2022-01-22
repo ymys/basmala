@@ -16,6 +16,8 @@ import 'package:basmalla/app/modules/koreksi/bindings/koreksi_binding.dart';
 import 'package:basmalla/app/modules/koreksi/views/koreksi_view.dart';
 import 'package:basmalla/app/modules/lokasi/bindings/lokasi_binding.dart';
 import 'package:basmalla/app/modules/lokasi/views/lokasi_view.dart';
+import 'package:basmalla/app/modules/pengaturan/bindings/pengaturan_binding.dart';
+import 'package:basmalla/app/modules/pengaturan/views/pengaturan_view.dart';
 import 'package:basmalla/app/modules/running_text/bindings/running_text_binding.dart';
 import 'package:basmalla/app/modules/running_text/views/running_text_view.dart';
 
@@ -71,6 +73,11 @@ class AppPages {
       name: _Paths.KOREKSI,
       page: () => KoreksiView(),
       binding: KoreksiBinding(),
+    ),
+    GetPage(
+      name: _Paths.PENGATURAN,
+      page: () => PengaturanView(),
+      binding: PengaturanBinding(),
     ),
   ];
 }

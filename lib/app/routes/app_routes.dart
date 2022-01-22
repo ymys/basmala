@@ -13,6 +13,7 @@ abstract class Routes {
   static const RUNNING_TEXT = _Paths.RUNNING_TEXT;
   static const ADZAN = _Paths.ADZAN;
   static const KOREKSI = _Paths.KOREKSI;
+  static const PENGATURAN = _Paths.PENGATURAN;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const RUNNING_TEXT = '/running-text';
   static const ADZAN = '/adzan';
   static const KOREKSI = '/koreksi';
+  static const PENGATURAN = '/pengaturan';
 }

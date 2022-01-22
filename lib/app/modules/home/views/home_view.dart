@@ -9,15 +9,39 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class HomeView extends GetView<HomeController> {
   BluetoothController get bt_controller =>
       GetInstance().find<BluetoothController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Basmalla',
+          style: TextStyle(fontSize: 28, fontStyle: FontStyle.italic),
+        ),
+        actions: [
+          Obx(
+            () => IconButton(
+              icon: DecoratedIcon(
+                FontAwesomeIcons.bluetooth,
+                color: bt_controller.isConnect() == true
+                    ? Colors.greenAccent
+                    : Colors.amber,
+                size: 24.sp,
+              ),
+              tooltip: 'Bluetooth',
+              onPressed: () async {
+                await Get.toNamed('/bluetooth-setting');
+              },
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height * 0.9,
               // color: Colors.yellow,
             ),
             new ShaderMask(
@@ -31,8 +55,11 @@ class HomeView extends GetView<HomeController> {
               },
               blendMode: BlendMode.dstIn,
               child: new Image.asset(
-                "images/Mosque.jpg",
-                height: MediaQuery.of(context).size.height * 0.55,
+                //masjid 4
+                "images/Masjid.jpg",
+                // "images/Masjid3.jpg",
+                height: MediaQuery.of(context).size.height * 0.45,
+                width: MediaQuery.of(context).size.width,
                 fit: BoxFit.cover,
               ),
             ),
@@ -61,25 +88,25 @@ class HomeView extends GetView<HomeController> {
             //         child: new Icon(Icons.menu),
             //       ),
             //     )),
-            new Positioned(
-              top: MediaQuery.of(context).size.height * 0.05,
-              right: MediaQuery.of(context).size.width * 0.05,
-              child: new Obx(
-                () => Container(
-                  height: 12,
-                  width: 12,
-                  decoration: new BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: bt_controller.isConnect() == true
-                        ? Colors.green
-                        : Color(0xFFFD3664),
-                  ),
-                ),
-              ),
-            ),
+            // new Positioned(
+            //   top: MediaQuery.of(context).size.height * 0.05,
+            //   right: MediaQuery.of(context).size.width * 0.05,
+            //   child: new Obx(
+            //     () => Container(
+            //       height: 12,
+            //       width: 12,
+            //       decoration: new BoxDecoration(
+            //         borderRadius: BorderRadius.circular(8),
+            //         color: bt_controller.isConnect() == true
+            //             ? Colors.green
+            //             : Color(0xFFFD3664),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.45,
+              height: MediaQuery.of(context).size.height * 0.40,
               margin: EdgeInsets.only(left: 21),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -130,7 +157,7 @@ class HomeView extends GetView<HomeController> {
             ),
 
             new Positioned(
-              top: MediaQuery.of(context).size.height * 0.45,
+              top: MediaQuery.of(context).size.height * 0.40,
               left: 0,
               child: Container(
                 // color: Colors.yellow,
@@ -210,25 +237,10 @@ class HomeView extends GetView<HomeController> {
                       },
                     ),
                     Menu(
-                      gambar: FontAwesomeIcons.bluetooth,
-                      text: 'Bluetooth',
-                      onClick: () async {
-                        final hasil = await Get.toNamed('/bluetooth-setting');
-                        // final hasil = await Get.toNamed('/bluetooth-setting');
-                        if (hasil == null) {
-                          Get.snackbar(
-                            "Pesan",
-                            "No Device Selected",
-                            snackPosition: SnackPosition.BOTTOM,
-                          );
-                        }
-                        // if (hasil != null) {
-                        //   if (bt_controller.isConnect()) {
-                        //     bt_controller.disconect();
-                        //   }
-
-                        //   bt_controller.connectTo(hasil);
-                        // }
+                      gambar: FontAwesomeIcons.tools,
+                      text: 'Pengaturan',
+                      onClick: () {
+                        Get.toNamed('/pengaturan');
                       },
                     ),
                   ],
@@ -237,13 +249,15 @@ class HomeView extends GetView<HomeController> {
             )
           ],
         ),
-
-        // ListView(
-        //   children: <Widget>[
-        ////   ],
-        // ),
       ),
     );
+  }
+}
+
+class mainHome extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 

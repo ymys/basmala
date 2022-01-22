@@ -3,6 +3,9 @@ import 'dart:typed_data';
 import 'package:get/get.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
+// 1234 %Y 12
+// Serial1.print("SetBuzer\n");
+
 class BluetoothController extends GetxController {
   final _connect = false.obs;
   final _enable = false.obs;
@@ -20,7 +23,10 @@ class BluetoothController extends GetxController {
     "OKK\n", //kota
     "OKA\n", //adzan
     "OKW\n", //mp3
-    "OKS\n",
+    "OKS\n", //text
+    "OKZ\n", //buzer
+    "OKY\n", //power
+    "OKR\n", //reset pabrik
   ];
   final cmdOK = [
     "SINKRON WAKTU SUKSES",
@@ -33,6 +39,9 @@ class BluetoothController extends GetxController {
     "SET TIMEOUT ADZAN SUKSES",
     "SUKSES",
     "SET TEXT SUKSES",
+    "SET BEEP BUZER SUKSES",
+    "SET POWER SUKSES",
+    "RESET PABRIK SUKSES",
   ];
   final datafinish = [
     "SetTime\n",
@@ -45,8 +54,10 @@ class BluetoothController extends GetxController {
     "SetAlrm\n",
     "SetPlay\n",
     "SetText\n",
+    "SetBuzer\n",
+    "SetPower\n",
+    "Reset\n",
   ];
-  // final _address = "".obs;
   BluetoothConnection? connection;
 
   @override

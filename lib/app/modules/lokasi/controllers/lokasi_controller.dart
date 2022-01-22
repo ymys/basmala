@@ -118,11 +118,11 @@ class LokasiController extends GetxController {
     //ketinggian 0
     //gmt+00
     String kirim = '';
-    if (_latitude > 0) {
-      kirim = 'EN';
-    } else {
-      kirim = 'ES';
-    }
+    // if (_latitude > 0) {
+    //   kirim = 'EN'; //positif
+    // } else {
+    //   kirim = 'ES'; //negative
+    // }
     if (_textEditingController[1].text.isEmpty &&
         _textEditingController[2].text.isEmpty) {
       Get.defaultDialog(
@@ -137,11 +137,16 @@ class LokasiController extends GetxController {
         content: Text('Lintng Bujur tidak boleh kosong!'),
       );
     } else {
-      double? conv = double.tryParse(_textEditingController[1].text);
-      kirim += conv!.toStringAsFixed(2);
-      conv = double.tryParse(_textEditingController[0].text);
-      conv = conv!.abs();
-      kirim += conv.toStringAsFixed(2).padLeft(6, '0');
+      double? lat = double.tryParse(_textEditingController[0].text);
+      if (lat!.isNegative) {
+        kirim = 'ES'; //negative
+      } else {
+        kirim = 'EN'; //positif
+      }
+      double? long = double.tryParse(_textEditingController[1].text);
+      kirim += long!.toStringAsFixed(2);
+      lat = lat.abs();
+      kirim += lat.toStringAsFixed(2).padLeft(6, '0');
       kirim += '0000';
       kirim += _zona + '+00';
       kirim = kirim.replaceAll(".", "");

@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class IqomahController extends GetxController {
   SharedPreferences? _memory;
   late BluetoothController bluetooth;
-  // final iqomah = ['Subuh', 'Dzuhur', 'Ashar', "Maghrib", "Isya", "Jumat"];
+  final iqomah = ['Subuh', 'Dzuhur', 'Ashar', "Maghrib", "Isya", "Jumat"];
   final lama_iqomah = ["00", "00", "00", "00", "00", "00"].obs;
   final text_iqomah = [" ", " ", " ", " ", " ", " "].obs;
   final lama_sholat = ["00", "00", "00", "00", "00", "00"].obs;
@@ -75,7 +75,7 @@ class IqomahController extends GetxController {
       lama_iqomah[i] = _memory!.getString("lama_iqomah" + i.toString()) ?? "12";
       lama_sholat[i] = _memory!.getString("lama_sholat" + i.toString()) ?? "05";
       text_iqomah[i] = _memory!.getString("text_iqomah" + i.toString()) ??
-          "Waktu Sholat .....";
+          "Waktu Sholat " + iqomah[i];
 
       if (lama_iqomah[i] == '') {
         lama_iqomah[i] = '00';

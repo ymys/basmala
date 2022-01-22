@@ -19,6 +19,8 @@ dependencies:
   decorated_icon: ^1.2.1
   auto_size_text: ^3.0.0
   responsive_sizer: ^3.0.4+4
+  dialogs: ^0.0.7
+  # salomon_bottom_bar: ^3.2.0
 
 dev_dependencies: 
   flutter_test: 
@@ -28,7 +30,7 @@ dev_dependencies:
 flutter: 
   uses-material-design: true
   assets:
-    - images/Mosque.jpg
+    - images/Masjid.jpg
 
 flutter_icons:
   android: "launcher_icon"
