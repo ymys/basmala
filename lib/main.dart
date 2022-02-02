@@ -56,7 +56,7 @@ ThemeData _buildTheme() {
 
         backgroundColor: MaterialStateProperty.all<Color>(
             // Colors.indigo), // button background color
-            Colors.green), // button background color
+            Colors.transparent), // button background color
         foregroundColor:
             MaterialStateProperty.all<Color>(Colors.white), // button text color
       ),

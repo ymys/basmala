@@ -1,0 +1,549 @@
+{
+    "alquran": [
+        {
+            "id": "001",
+            "surah": "Surah Al-Fatihah"
+        },
+        {
+            "id": "002",
+            "surah": "Surah Al-Baqarah"
+        },
+        {
+            "id": "003",
+            "surah": "Surah Al-Imran"
+        },
+        {
+            "id": "004",
+            "surah": "Surah An-Nisa"
+        },
+        {
+            "id": "005",
+            "surah": "Surah Al-Maidah"
+        },
+        {
+            "id": "006",
+            "surah": "Surah Al-Anam"
+        },
+        {
+            "id": "007",
+            "surah": "Surah Al-Araf"
+        },
+        {
+            "id": "008",
+            "surah": "Surah Al-Anfal"
+        },
+        {
+            "id": "009",
+            "surah": "Surah At-Taubah"
+        },
+        {
+            "id": "010",
+            "surah": "Surah Yunus"
+        },
+        {
+            "id": "011",
+            "surah": "Surah Hud"
+        },
+        {
+            "id": "012",
+            "surah": "Surah Yusuf"
+        },
+        {
+            "id": "013",
+            "surah": "Surah Ar-Ra'd"
+        },
+        {
+            "id": "014",
+            "surah": "Surah Ibrahim"
+        },
+        {
+            "id": "015",
+            "surah": "Surah Al-Hijr"
+        },
+        {
+            "id": "016",
+            "surah": "Surah An-Nahl"
+        },
+        {
+            "id": "017",
+            "surah": "Surah Al-Isra"
+        },
+        {
+            "id": "018",
+            "surah": "Surah Al-Kahf"
+        },
+        {
+            "id": "019",
+            "surah": "Surah Maryam"
+        },
+        {
+            "id": "020",
+            "surah": "Surah Ta-Ha"
+        },
+        {
+            "id": "021",
+            "surah": "Surah Al-Anbiya"
+        },
+        {
+            "id": "022",
+            "surah": "Surah Al-Hajj"
+        },
+        {
+            "id": "023",
+            "surah": "Surah Al-Muminun"
+        },
+        {
+            "id": "024",
+            "surah": "Surah An-Nur"
+        },
+        {
+            "id": "025",
+            "surah": "Surah Al-Furqan"
+        },
+        {
+            "id": "026",
+            "surah": "Surah Ash-Shuara"
+        },
+        {
+            "id": "027",
+            "surah": "Surah An-Naml"
+        },
+        {
+            "id": "028",
+            "surah": "Surah Al-Qasas"
+        },
+        {
+            "id": "029",
+            "surah": "Surah Al-Ankabut"
+        },
+        {
+            "id" : "030",
+            "surah": "Surah Ar-Rum"
+        },
+        {
+            "id": "031",
+            "surah": "Surah Luqman"
+        },
+        {
+            "id": "032",
+            "surah": "Surah As-Sajdah"
+        },
+        {
+            "id": "033",
+            "surah": "Surah Al-Ahzab"
+        },
+        {
+            "id": "034",
+            "surah": "Surah Saba"
+        },
+        {
+            "id": "035",
+            "surah": "Surah Fatir"
+        },
+        {
+            "id": "036",
+            "surah": "Surah Ya-Sin"
+        },
+        {
+            "id": "037",
+            "surah": "Surah As-Saffat"
+        },
+        {
+            "id": "038",
+            "surah": "Surah Sad"
+        },
+        {
+            "id": "039",
+            "surah": "Surah Az-Zumar"
+        },
+        {
+            "id": "040",
+            "surah": "Surah Ghafir"
+        },
+        {
+            "id": "041",
+            "surah": "Surah Fussilat"
+        },
+        {
+            "id": "042",
+            "surah": "Surah Ash-Shura"
+        },
+        {
+            "id": "043",
+            "surah": "Surah Az-Zukhruf"
+        },
+        {
+            "id": "044",
+            "surah": "Surah Ad-Dukhan"
+        },
+        {
+            "id": "045",
+            "surah": "Surah Al-Jathiyah"
+        },
+        {
+            "id": "046",
+            "surah": "Surah Al-Ahqaf"
+        },
+        {
+            "id": "047",
+            "surah": "Surah Muhammad"
+        },
+        {
+            "id": "048",
+            "surah": "Surah Al-Fath"
+        },
+        {
+            "id": "049",
+            "surah": "Surah Al-Hujurat"
+        },
+        {
+            "id": "050",
+            "surah": "Surah Qaf"
+        },
+        {
+            "id": "051",
+            "surah": "Surah Adh-Dhariyat"
+        },
+        {
+            "id": "052",
+            "surah": "Surah At-Tur"
+        },
+        {
+            "id": "053",
+            "surah": "Surah An-Najm"
+        },
+        {
+            "id": "054",
+            "surah": "Surah Al-Qamar"
+        },
+        {
+            "id": "055",
+            "surah": "Surah Ar-Rahman"
+        },
+        {
+            "id": "056",
+            "surah": "Surah Al-Waqi'ah"
+        },
+        {
+            "id": "057",
+            "surah": "Surah Al-Hadid"
+        },
+        {
+            "id": "058",
+            "surah": "Surah Al-Mujadilah"
+        },
+        {
+            "id": "059",
+            "surah": "Surah Al-Hashr"
+        },
+        {
+            "id": "060",
+            "surah": "Surah Al-Mumtahanah"
+        },
+        {
+            "id": "061",
+            "surah": "Surah As-Saff"
+        },
+        {
+            "id": "062",
+            "surah": "Surah Al-Jumu'ah"
+        },
+        {
+            "id": "063",
+            "surah": "Surah Al-Munafiqun"
+        },
+        {
+            "id": "064",
+            "surah": "Surah At-Taghabun"
+        },
+        {
+            "id": "065",
+            "surah": "Surah At-Talaq"
+        },
+        {
+            "id": "066",
+            "surah": "Surah At-Tahrim"
+        },
+        {
+            "id": "067",
+            "surah": "Surah Al-Mulk"
+        },
+        {
+            "id": "068",
+            "surah": "Surah Al-Qalam"
+        },
+        {
+            "id": "069",
+            "surah": "Surah Al-Haqqah"
+        },
+        {
+            "id": "070",
+            "surah": "Surah Al-Ma'arij"
+        },
+        {
+            "id": "071",
+            "surah": "Surah Nuh"
+        },
+        {
+            "id": "072",
+            "surah": "Surah Al-Jinn"
+        },
+        {
+            "id": "073",
+            "surah": "Surah Al-Muzzammil"
+        },
+        {
+            "id": "074",
+            "surah": "Surah Al-Muddaththir"
+        },
+        {
+            "id": "075",
+            "surah": "Surah Al-Qiyamah"
+        },
+        {
+            "id": "076",
+            "surah": "Surah Al-Insan"
+        },
+        {
+            "id": "077",
+            "surah": "Surah Al-Mursalat"
+        },
+        {
+            "id": "078",
+            "surah": "Surah An-Naba"
+        },
+        {
+            "id": "079",
+            "surah": "Surah An-Naziat"
+        },
+        {
+            "id": "080",
+            "surah": "Surah Abasa"
+        },
+        {
+            "id": "081",
+            "surah": "Surah At-Takwir"
+        },
+        {
+            "id": "082",
+            "surah": "Surah Al-Infitar"
+        },
+        {
+            "id": "083",
+            "surah": "Surah Al-Mutaffifin"
+        },
+        {
+            "id": "084",
+            "surah": "Surah Al-Inshiqaq"
+        },
+        {
+            "id": "085",
+            "surah": "Surah Al-Buruj"
+        },
+        {
+            "id": "086",
+            "surah": "Surah At-Tariq"
+        },
+        {
+            "id": "087",
+            "surah": "Surah Al-Ala"
+        },
+        {
+            "id": "088",
+            "surah": "Surah Al-Ghashiyah"
+        },
+        {
+            "id": "089",
+            "surah": "Surah Al-Fajr"
+        },
+        {
+            "id": "090",
+            "surah": "Surah Al-Balad"
+        },
+        {
+            "id": "091",
+            "surah": "Surah Ash-Shams"
+        },
+        {
+            "id": "092",
+            "surah": "Surah Al-Lail"
+        },
+        {
+            "id": "093",
+            "surah": "Surah Ad-Dhuha"
+        },
+        {
+            "id": "094",
+            "surah": "Surah Al-Inshirah"
+        },
+        {
+            "id": "095",
+            "surah": "Surah At-Tin"
+        },
+        {
+            "id": "096",
+            "surah": "Surah Al-Alaq"
+        },
+        {
+            "id": "097",
+            "surah": "Surah Al-Qadr"
+        },
+        {
+            "id": "098",
+            "surah": "Surah Al-Bayyinah"
+        },
+        {
+            "id": "099",
+            "surah": "Surah Az-Zalzalah"
+        },
+        {
+            "id": "100",
+            "surah": "Surah Al-Adiyat"
+        },
+        {
+            "id": "101",
+            "surah": "Surah Al-Qari'ah"
+        },
+        {
+            "id": "102",
+            "surah": "Surah At-Takathur"
+        },
+        {
+            "id": "103",
+            "surah": "Surah Al-Asr"
+        },
+        {
+            "id": "104",
+            "surah": "Surah Al-Humazah"
+        },
+        {
+            "id": "105",
+            "surah": "Surah Al-Fil"
+        },
+        {
+            "id": "106",
+            "surah": "Surah Quraisy"
+        },
+        {
+            "id": "107",
+            "surah": "Surah Al-Ma'un"
+        },
+        {
+            "id": "108",
+            "surah": "Surah Al-Kawthar"
+        },
+        {
+            "id": "109",
+            "surah": "Surah Al-Kafirun"
+        },
+        {
+            "id": "110",
+            "surah": "Surah An-Nasr"
+        },
+        {
+            "id": "111",
+            "surah": "Surah Al-Masad"
+        },
+        {
+            "id": "112",
+            "surah": "Surah Al-Ikhlas"
+        },
+        {
+            "id": "113",
+            "surah": "Surah Al-Falaq"
+        },
+        {
+            "id": "114",
+            "surah": "Surah An-Nas"
+        },
+        {
+            "id": "115",
+            "surah": "Sholawat Tarhim 1"
+        },
+        {
+            "id": "116",
+            "surah": "Sholawat Tarhim 2"
+        },
+        {
+            "id": "117",
+            "surah": "Custom 01"
+        },
+        {
+            "id": "118",
+            "surah": "Custom 02"
+        },
+        {
+            "id": "119",
+            "surah": "Custom 03"
+        },
+        {
+            "id": "120",
+            "surah": "Custom 04"
+        },
+        {
+            "id": "121",
+            "surah": "Custom 05"
+        },
+        {
+            "id": "122",
+            "surah": "Custom 06"
+        },
+        {
+            "id": "123",
+            "surah": "Custom 07"
+        },
+        {
+            "id": "124",
+            "surah": "Custom 08"
+        },
+        {
+            "id": "125",
+            "surah": "Custom 09"
+        },
+        {
+            "id": "126",
+            "surah": "Custom 10"
+        },
+        {
+            "id": "127",
+            "surah": "Custom 11"
+        },
+        {
+            "id": "128",
+            "surah": "Custom 12"
+        },
+        {
+            "id": "129",
+            "surah": "Custom 13"
+        },
+        {
+            "id": "130",
+            "surah": "Custom 14"
+        },
+        {
+            "id": "131",
+            "surah": "Custom 15"
+        },
+        {
+            "id": "132",
+            "surah": "Custom 16"
+        },
+        {
+            "id": "133",
+            "surah": "Custom 17"
+        },
+        {
+            "id": "134",
+            "surah": "Custom 18"
+        },
+        {
+            "id": "135",
+            "surah": "Custom 19"
+        },
+        {
+            "id": "136",
+            "surah": "Custom 20"
+        }
+       
+    ]
+}

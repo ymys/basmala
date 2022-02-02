@@ -14,6 +14,7 @@ abstract class Routes {
   static const ADZAN = _Paths.ADZAN;
   static const KOREKSI = _Paths.KOREKSI;
   static const PENGATURAN = _Paths.PENGATURAN;
+  static const TILAWAH = _Paths.TILAWAH;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const ADZAN = '/adzan';
   static const KOREKSI = '/koreksi';
   static const PENGATURAN = '/pengaturan';
+  static const TILAWAH = '/tilawah';
 }

@@ -48,6 +48,7 @@ class PengaturanView extends GetView<PengaturanController> {
 
   CardSettingsButton kirimWaktuManual() {
     return CardSettingsButton(
+      backgroundColor: Colors.green,
       bottomSpacing: 12,
       label: 'Kirim',
       onPressed: () {
@@ -80,6 +81,7 @@ class PengaturanView extends GetView<PengaturanController> {
 
   CardSettingsButton kirimBeep() {
     return CardSettingsButton(
+      backgroundColor: Colors.green,
       bottomSpacing: 12,
       label: 'Kirim',
       onPressed: () {
@@ -90,6 +92,7 @@ class PengaturanView extends GetView<PengaturanController> {
 
   CardSettingsButton kirimPower() {
     return CardSettingsButton(
+      backgroundColor: Colors.green,
       bottomSpacing: 12,
       label: 'Kirim',
       onPressed: () {

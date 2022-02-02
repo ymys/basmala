@@ -20,6 +20,8 @@ import 'package:basmalla/app/modules/pengaturan/bindings/pengaturan_binding.dart
 import 'package:basmalla/app/modules/pengaturan/views/pengaturan_view.dart';
 import 'package:basmalla/app/modules/running_text/bindings/running_text_binding.dart';
 import 'package:basmalla/app/modules/running_text/views/running_text_view.dart';
+import 'package:basmalla/app/modules/tilawah/bindings/tilawah_binding.dart';
+import 'package:basmalla/app/modules/tilawah/views/tilawah_view.dart';
 
 part 'app_routes.dart';
 
@@ -78,6 +80,11 @@ class AppPages {
       name: _Paths.PENGATURAN,
       page: () => PengaturanView(),
       binding: PengaturanBinding(),
+    ),
+    GetPage(
+      name: _Paths.TILAWAH,
+      page: () => TilawahView(),
+      binding: TilawahBinding(),
     ),
   ];
 }

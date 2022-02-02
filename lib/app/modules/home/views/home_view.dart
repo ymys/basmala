@@ -188,10 +188,10 @@ class HomeView extends GetView<HomeController> {
                       },
                     ),
                     Menu(
-                      gambar: FontAwesomeIcons.cloudSun,
-                      text: 'Kecerahan',
+                      gambar: FontAwesomeIcons.quran,
+                      text: 'Tilawah',
                       onClick: () {
-                        Get.toNamed('/brightness');
+                        Get.toNamed('/tilawah');
                       },
                     ),
                     Menu(
