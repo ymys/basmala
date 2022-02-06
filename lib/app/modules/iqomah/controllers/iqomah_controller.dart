@@ -107,5 +107,16 @@ class IqomahController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    // dispose TextEditingController
+    _controller_lama_iqomah.forEach((element) {
+      element.dispose();
+    });
+    _controller_text_iqomah.forEach((element) {
+      element.dispose();
+    });
+    _controller_lama_sholat.forEach((element) {
+      element.dispose();
+    });
+  }
 }

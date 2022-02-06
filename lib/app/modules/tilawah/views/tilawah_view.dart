@@ -1,60 +1,73 @@
 import 'package:card_settings/card_settings.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/tilawah_controller.dart';
 
 class TilawahView extends GetView<TilawahController> {
-  CardSettingsRadioPicker _buildListAdzan(bool enable) {
+  CardSettingsInt _buildLamaTilawah(int index) {
+    return CardSettingsInt(
+      label: 'Lama Tilawah',
+      unitLabel: '(menit)',
+      maxLength: 2,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      controller: controller.getLamaTilawahControler(index),
+      validator: (value) {
+        if (value == null) return 'Tidak boleh kosong';
+        return null;
+      },
+      onChanged: (value) {
+        if (value != null) {
+          controller.setLamaTilawah(value, index);
+        }
+      },
+    );
+  }
+
+  CardSettingsRadioPicker _buildListAdzan(int index) {
     return CardSettingsRadioPicker<PickerModel>(
-      visible: enable,
       label: 'Pilih Adzan',
-      initialItem: controller.getAdzanList().first,
+      initialItem: controller.getInitAdzan(index),
       hintText: 'Select One',
-      // autovalidateMode: _autoValidateMode,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       items: controller.getAdzanList(),
       // validator: (PickerModel value) {
       //   if (value == null || value.toString().isEmpty)
       //     return 'You must pick a gender.';
       //   return null;
       // },
-      // onSaved: (value) => _ponyModel.gender = value,
       onChanged: (value) {
-        print(value.code);
-        final hasil = int.parse(value.code.toString());
-
-        print(hasil);
+        // controller
+        controller.setInitAdzan(value, index);
       },
     );
   }
 
-  CardSettingsRadioPicker _buildListRadio(bool enable) {
+  CardSettingsRadioPicker _buildListSurah(int index) {
     return CardSettingsRadioPicker<PickerModel>(
-      visible: enable,
       label: 'Pilih surah',
-      initialItem: controller
-          .getQuranList()
-          .first, // PickerModel('Alfatiha', code: '000'),
+      initialItem: controller.getInitSurah(index),
       hintText: 'Select One',
-      // autovalidateMode: _autoValidateMode,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       items: controller.getQuranList(),
-      // validator: (PickerModel value) {
-      //   if (value == null || value.toString().isEmpty)
-      //     return 'You must pick a gender.';
-      //   return null;
-      // },
-      // onSaved: (value) => _ponyModel.gender = value,
       onChanged: (value) {
-        print(value.code);
-        final hasil = int.parse(value.code.toString());
-
-        print(hasil);
+        controller.setInitSurah(value, index);
       },
     );
   }
 
-  CardSettings _buildMenu(String tilte, bool enable) {
+  CardSettingsButton _kirim(int index) {
+    return CardSettingsButton(
+      textColor: Colors.white,
+      backgroundColor: Colors.green,
+      bottomSpacing: 12,
+      label: 'Kirim',
+      onPressed: () {
+        controller.kirim(index);
+      },
+    );
+  }
+
+  CardSettings _buildMenu(String tilte, int index) {
     return CardSettings.sectioned(
       labelPadding: 12.0,
       children: <CardSettingsSection>[
@@ -63,71 +76,141 @@ class TilawahView extends GetView<TilawahController> {
             label: 'Tilawah ' + tilte,
           ),
           children: <CardSettingsWidget>[
-            _buildListRadio(enable),
-            _buildListAdzan(enable),
+            _buildListSurah(index),
+            _buildLamaTilawah(index),
+            _buildListAdzan(index),
+            _kirim(index),
           ],
         ),
       ],
     );
   }
 
-  CardSettingsRadioPicker _buildListEqualizer(bool enable) {
+//setting Pengaturan df player
+  CardSettingsRadioPicker _buildListEqualizer() {
     return CardSettingsRadioPicker<PickerModel>(
-      visible: enable,
       label: 'Pilih Equalizer',
-      initialItem: controller
-          .getEqualizerList()
-          .first, // PickerModel('Alfatiha', code: '000'),
+      initialItem: controller.getInitEqualizer(),
       hintText: 'Select One',
-      // autovalidateMode: _autoValidateMode,
       items: controller.getEqualizerList(),
-      // validator: (PickerModel value) {
-      //   if (value == null || value.toString().isEmpty)
-      //     return 'You must pick a gender.';
-      //   return null;
-      // },
-      // onSaved: (value) => _ponyModel.gender = value,
       onChanged: (value) {
-        print(value.code);
-        final hasil = int.parse(value.code.toString());
-        print(hasil);
+        controller.setInitEqualizer(value);
       },
     );
   }
 
-  CardSettingsSlider _buildVolume(bool enable) {
+  CardSettingsSlider _buildVolume() {
     return CardSettingsSlider(
-      visible: enable,
       label: 'Volume',
       initialValue: controller.getVolume(),
       min: 0.0,
       max: 30.0,
-      // autovalidateMode: _autoValidateMode,
-      // validator: (double value) {
-      //   if (value == null) return 'You must pick a rating.';
-      //   return null;
-      // },
-      // onSaved: (value) => _ponyModel.rating = value,
       onChanged: (value) {
         controller.setVolume(value);
-        print(value.toInt());
       },
     );
   }
 
-  CardSettings _buildSetting(String tilte, bool enable) {
+  CardSettingsButton _play(String name) {
+    return CardSettingsButton(
+      textColor: Colors.white,
+      backgroundColor: Colors.green,
+      bottomSpacing: 12,
+      label: 'Play ' + name,
+      onPressed: () {
+        controller.playerPlay(name);
+      },
+    );
+  }
+
+  CardSettingsButton _stop() {
+    return CardSettingsButton(
+      textColor: Colors.white,
+      backgroundColor: Colors.red,
+      bottomSpacing: 12,
+      label: 'Stop',
+      onPressed: () {
+        controller.playerStop();
+      },
+    );
+  }
+
+  CardSettingsButton _setting() {
+    return CardSettingsButton(
+      textColor: Colors.white,
+      backgroundColor: Colors.green,
+      bottomSpacing: 12,
+      label: 'Kirim',
+      onPressed: () {
+        controller.setting();
+      },
+    );
+  }
+
+  CardSettingsRadioPicker _buildPlayManual(String name) {
+    return CardSettingsRadioPicker<PickerModel>(
+      label: 'Pilih Surah',
+      initialItem: controller.getPlayManualQuranList().first,
+      hintText: 'Silahkan pilih surah',
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      items: controller.getPlayManualQuranList(),
+      validator: (value) {
+        if (value == null || value.toString().isEmpty) {
+          return 'Harus Pilih Surah';
+        }
+      },
+      onChanged: (value) {
+        controller.setPlaySurah(value);
+      },
+    );
+  }
+
+  CardSettingsRadioPicker _buildPlayAdzanManual(String name) {
+    return CardSettingsRadioPicker<PickerModel>(
+      label: 'Pilih Adzan',
+      initialItem: controller.getPlayManualAdzanList().first,
+      hintText: 'Silahkan pilih surah adzan',
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      items: controller.getPlayManualAdzanList(),
+      validator: (value) {
+        if (value == null || value.toString().isEmpty) {
+          return 'Harus Pilih Adzan';
+        }
+      },
+      onChanged: (value) {
+        controller.setPlayAdzan(value);
+      },
+    );
+  }
+
+  CardSettings _buildSetting() {
     return CardSettings.sectioned(
       labelPadding: 12.0,
       children: <CardSettingsSection>[
         CardSettingsSection(
           header: CardSettingsHeader(
-            label: tilte,
+            label: 'Setting Tilawah',
           ),
           children: <CardSettingsWidget>[
-            _buildVolume(enable),
-            _buildListEqualizer(enable),
-            _buildListRadio(enable),
-            _buildListAdzan(enable),
+            _buildVolume(),
+            _buildListEqualizer(),
+            _setting(),
+          ],
+        ),
+        CardSettingsSection(
+          header: CardSettingsHeader(
+            label: 'Play Manual',
+          ),
+          children: <CardSettingsWidget>[
+            _buildPlayManual('surah'),
+            _buildPlayAdzanManual('adzan'),
+            CardFieldLayout(
+              <CardSettingsWidget>[
+                _play('Surah'),
+                _play('Adzan'),
+                _stop(),
+              ],
+            ),
           ],
         ),
       ],
@@ -144,30 +227,35 @@ class TilawahView extends GetView<TilawahController> {
           centerTitle: true,
           bottom: const TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.play_arrow)),
-              Tab(icon: Icon(Icons.settings)),
+              Tab(
+                // icon: Icon(Icons.play_arrow),
+                text: 'Pilih Tilawah',
+              ),
+              Tab(
+                // icon: Icon(Icons.settings),
+                text: 'Pengaturan Player',
+              ),
             ],
           ),
-          backgroundColor: Colors.green,
         ),
-        body: TabBarView(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 4.0, right: 4.0),
-              child: ListView.builder(
-                itemCount: controller.namaTilawah.length,
-                itemBuilder: (context, index) {
-                  return Obx(
-                    () => _buildMenu(
-                        controller.namaTilawah[index], controller.enable.value),
-                  );
-                  // _buildMenu(
-                  //     controller.getNameTilawah(index), controller.getEnable());
-                },
-              ),
-            ),
-            _buildSetting('Setting Tilawah', true),
-          ],
+        body: Obx(
+          () => controller.enable.value == false
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : TabBarView(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 4.0, right: 4.0),
+                      child: ListView.builder(
+                        itemCount: controller.namaTilawah.length,
+                        itemBuilder: (context, index) =>
+                            _buildMenu(controller.namaTilawah[index], index),
+                      ),
+                    ),
+                    _buildSetting(),
+                  ],
+                ),
         ),
       ),
     );

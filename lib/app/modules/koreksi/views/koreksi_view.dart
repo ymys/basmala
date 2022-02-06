@@ -19,16 +19,6 @@ class KoreksiView extends GetView<KoreksiController> {
     );
   }
 
-  // CardSettingsButton _kirim() {
-  //   return CardSettingsButton(
-  //     bottomSpacing: 12,
-  //     label: 'Kirim',
-  //     onPressed: () {
-  //       controller.kirim();
-  //     },
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +40,6 @@ class KoreksiView extends GetView<KoreksiController> {
                   CardSettingsSection(
                     header: CardSettingsHeader(
                       label: 'Koreksi Jadwal Sholat',
-                      color: Colors.blueAccent,
                     ),
                     children: <CardSettingsWidget>[
                       _koreksi(0),

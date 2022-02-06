@@ -49,6 +49,7 @@ class LokasiView extends GetView<LokasiController> {
     return CardSettingsButton(
       label: 'Load GPS',
       backgroundColor: Colors.amber[800],
+      textColor: Colors.white,
       bottomSpacing: 20,
       onPressed: () async {
         // CardSettings.of(context).divider(/)
@@ -103,7 +104,6 @@ class LokasiView extends GetView<LokasiController> {
                 CardSettingsSection(
                   header: CardSettingsHeader(
                     label: 'Setting Lokasi',
-                    color: Colors.blueAccent,
                   ),
                   children: <CardSettingsWidget>[
                     _textFileld(0),

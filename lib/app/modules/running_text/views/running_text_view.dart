@@ -39,7 +39,7 @@ class RunningTextView extends GetView<RunningTextController> {
                   CardSettingsSection(
                     header: CardSettingsHeader(
                       label: 'Text',
-                      color: Colors.blueAccent,
+                      labelAlign: TextAlign.center,
                     ),
                     children: <CardSettingsWidget>[
                       _textEdit(20),

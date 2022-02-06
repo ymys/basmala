@@ -27,10 +27,6 @@ class FixJadwalController extends GetxController {
     Future.delayed(const Duration(milliseconds: 500), () {
       _init();
     });
-    // Timer(Duration(seconds: 1), () {
-    //   _init();
-    //   print("Yeah, this line is printed after 3 seconds");
-    // });
   }
 
   @override

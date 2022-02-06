@@ -13,6 +13,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -37,13 +38,9 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: Container(
         child: Stack(
           children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height * 0.9,
-              // color: Colors.yellow,
-            ),
             new ShaderMask(
               shaderCallback: (rect) {
                 return LinearGradient(
@@ -55,12 +52,10 @@ class HomeView extends GetView<HomeController> {
               },
               blendMode: BlendMode.dstIn,
               child: new Image.asset(
-                //masjid 4
                 "images/Masjid.jpg",
-                // "images/Masjid3.jpg",
-                height: MediaQuery.of(context).size.height * 0.45,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
+                // height: MediaQuery.of(context).size.height * 0.4,
+                // width: MediaQuery.of(context).size.width,
+                // fit: BoxFit.cover,
               ),
             ),
             new RotatedBox(
@@ -104,18 +99,19 @@ class HomeView extends GetView<HomeController> {
             //     ),
             //   ),
             // ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.40,
-              margin: EdgeInsets.only(left: 21),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Container(),
-                  ),
-                  Text(
+
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                      // color: Colors.yellow,
+                      ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 21),
+                  child: Text(
                     'WELCOME TO,',
                     style: TextStyle(
                       fontFamily: 'Oswald',
@@ -125,16 +121,19 @@ class HomeView extends GetView<HomeController> {
                       color: Colors.grey[600],
                     ),
                   ),
-                  // Text(
-                  //   'WELCOME TO,',
-                  //   style: GoogleFonts.oswald(
-                  //     textStyle: TextStyle(
-                  //       color: Colors.grey[600],
-                  //       fontSize: 24.sp,
-                  //     ),
-                  //   ),
-                  // ),
-                  Text(
+                ),
+                // Text(
+                //   'WELCOME TO,',
+                //   style: GoogleFonts.oswald(
+                //     textStyle: TextStyle(
+                //       color: Colors.grey[600],
+                //       fontSize: 24.sp,
+                //     ),
+                //   ),
+                // ),
+                Container(
+                  margin: EdgeInsets.only(left: 21),
+                  child: Text(
                     'BASMALLA',
                     style: TextStyle(
                       letterSpacing: 4,
@@ -143,7 +142,10 @@ class HomeView extends GetView<HomeController> {
                       color: Color(0xFFFD3664),
                     ),
                   ),
-                  Text(
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 21),
+                  child: Text(
                     "New Smart Jadwal Sholat Digital",
                     style: TextStyle(
                       fontFamily: 'Oswald',
@@ -152,101 +154,98 @@ class HomeView extends GetView<HomeController> {
                       color: Colors.grey,
                     ),
                   ),
-                ],
-              ),
-            ),
-
-            new Positioned(
-              top: MediaQuery.of(context).size.height * 0.40,
-              left: 0,
-              child: Container(
-                // color: Colors.yellow,
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.width,
-                child: GridView.count(
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.all(11),
-                  crossAxisCount: 3,
-                  childAspectRatio: 1,
-                  children: <Widget>[
-                    Menu(
-                      gambar: FontAwesomeIcons.clock,
-                      text: 'Sinkron Waktu',
-                      onClick: () async {
-                        DateTime waktu = DateTime.now();
-                        //('kkmmssddMMyyyy')
-                        String kirim = "";
-
-                        kirim = waktu.second.toString().padLeft(2, '0');
-                        kirim += waktu.minute.toString().padLeft(2, '0');
-                        kirim += waktu.hour.toString().padLeft(2, '0');
-                        kirim += waktu.day.toString().padLeft(2, '0');
-                        kirim += waktu.month.toString().padLeft(2, '0');
-                        kirim += (waktu.year - 2000).toString();
-
-                        await bt_controller.setting("%J", kirim);
-                      },
-                    ),
-                    Menu(
-                      gambar: FontAwesomeIcons.quran,
-                      text: 'Tilawah',
-                      onClick: () {
-                        Get.toNamed('/tilawah');
-                      },
-                    ),
-                    Menu(
-                      gambar: FontAwesomeIcons.eraser,
-                      text: 'Koreksi Jadwal',
-                      onClick: () {
-                        Get.toNamed('/koreksi');
-                      },
-                    ),
-                    Menu(
-                      gambar: FontAwesomeIcons.edit,
-                      text: 'Edit Text',
-                      onClick: () {
-                        Get.toNamed('/running-text');
-                      },
-                    ),
-                    Menu(
-                      gambar: FontAwesomeIcons.mosque,
-                      text: 'Iqomah',
-                      onClick: () {
-                        Get.toNamed('/iqomah');
-                      },
-                    ),
-                    Menu(
-                      gambar: FontAwesomeIcons.bullhorn,
-                      text: 'Lama Adzan',
-                      onClick: () {
-                        Get.toNamed('/adzan');
-                      },
-                    ),
-                    Menu(
-                      gambar: FontAwesomeIcons.globeAmericas,
-                      text: 'Seting Kota',
-                      onClick: () {
-                        Get.toNamed('/lokasi');
-                      },
-                    ),
-                    Menu(
-                      gambar: FontAwesomeIcons.calendarCheck,
-                      text: 'Fix Jadwal',
-                      onClick: () {
-                        Get.toNamed('/fix-jadwal');
-                      },
-                    ),
-                    Menu(
-                      gambar: FontAwesomeIcons.tools,
-                      text: 'Pengaturan',
-                      onClick: () {
-                        Get.toNamed('/pengaturan');
-                      },
-                    ),
-                  ],
                 ),
-              ),
-            )
+                Container(
+                  // color: Colors.yellow,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.width,
+                  child: GridView.count(
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.all(21),
+                    crossAxisCount: 3,
+                    childAspectRatio: 1,
+                    crossAxisSpacing: 21,
+                    mainAxisSpacing: 21,
+                    children: <Widget>[
+                      Menu(
+                        gambar: FontAwesomeIcons.clock,
+                        text: 'Sinkron Waktu',
+                        onClick: () async {
+                          DateTime waktu = DateTime.now();
+                          //('kkmmssddMMyyyy')
+                          String kirim = "";
+
+                          kirim = waktu.second.toString().padLeft(2, '0');
+                          kirim += waktu.minute.toString().padLeft(2, '0');
+                          kirim += waktu.hour.toString().padLeft(2, '0');
+                          kirim += waktu.day.toString().padLeft(2, '0');
+                          kirim += waktu.month.toString().padLeft(2, '0');
+                          kirim += (waktu.year - 2000).toString();
+
+                          await bt_controller.setting("%J", kirim);
+                        },
+                      ),
+                      Menu(
+                        gambar: FontAwesomeIcons.quran,
+                        text: 'Tilawah',
+                        onClick: () {
+                          Get.toNamed('/tilawah');
+                        },
+                      ),
+                      Menu(
+                        gambar: FontAwesomeIcons.eraser,
+                        text: 'Koreksi Jadwal',
+                        onClick: () {
+                          Get.toNamed('/koreksi');
+                        },
+                      ),
+                      Menu(
+                        gambar: FontAwesomeIcons.edit,
+                        text: 'Edit Text',
+                        onClick: () {
+                          Get.toNamed('/running-text');
+                        },
+                      ),
+                      Menu(
+                        gambar: FontAwesomeIcons.mosque,
+                        text: 'Iqomah',
+                        onClick: () {
+                          Get.toNamed('/iqomah');
+                        },
+                      ),
+                      Menu(
+                        gambar: FontAwesomeIcons.bullhorn,
+                        text: 'Lama Adzan',
+                        onClick: () {
+                          Get.toNamed('/adzan');
+                        },
+                      ),
+                      Menu(
+                        gambar: FontAwesomeIcons.globeAmericas,
+                        text: 'Seting Kota',
+                        onClick: () {
+                          Get.toNamed('/lokasi');
+                        },
+                      ),
+                      Menu(
+                        gambar: FontAwesomeIcons.calendarCheck,
+                        text: 'Fix Jadwal',
+                        onClick: () {
+                          Get.toNamed('/fix-jadwal');
+                        },
+                      ),
+                      Menu(
+                        gambar: FontAwesomeIcons.tools,
+                        text: 'Pengaturan',
+                        onClick: () {
+                          Get.toNamed('/pengaturan');
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -271,13 +270,13 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Center(
       child: new Container(
-        margin: EdgeInsets.all(12),
+        // margin: EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: Colors.amber[100],
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.indigo,
+              color: Colors.blueAccent,
               spreadRadius: 2,
             ),
           ],

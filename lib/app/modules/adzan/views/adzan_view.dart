@@ -46,7 +46,6 @@ class AdzanView extends GetView<AdzanController> {
                 CardSettingsSection(
                   header: CardSettingsHeader(
                     label: 'Setting Lama Adzan',
-                    color: Colors.blueAccent,
                   ),
                   children: <CardSettingsWidget>[
                     _Adzan(0),

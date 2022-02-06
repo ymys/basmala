@@ -72,6 +72,7 @@ class IqomahView extends GetView<IqomahController> {
 
   CardSettingsButton _kirim(int index) {
     return CardSettingsButton(
+      textColor: Colors.white,
       backgroundColor: Colors.green,
       bottomSpacing: 12,
       label: 'Kirim',
@@ -105,7 +106,6 @@ class IqomahView extends GetView<IqomahController> {
               CardSettingsSection(
                 header: CardSettingsHeader(
                   label: iqomah[index],
-                  color: Colors.blueAccent,
                 ),
                 children: <CardSettingsWidget>[
                   _Iqomah(index),

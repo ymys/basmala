@@ -41,7 +41,11 @@ class AdzanController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    _controller_lama_adzan.forEach((element) {
+      element.dispose();
+    });
+  }
 
   void saveAdzan(int index, int value) async {
     await _memory!.setInt("lama_adzan" + index.toString(), value);

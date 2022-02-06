@@ -48,6 +48,7 @@ class PengaturanView extends GetView<PengaturanController> {
 
   CardSettingsButton kirimWaktuManual() {
     return CardSettingsButton(
+      textColor: Colors.white,
       backgroundColor: Colors.green,
       bottomSpacing: 12,
       label: 'Kirim',
@@ -81,6 +82,7 @@ class PengaturanView extends GetView<PengaturanController> {
 
   CardSettingsButton kirimBeep() {
     return CardSettingsButton(
+      textColor: Colors.white,
       backgroundColor: Colors.green,
       bottomSpacing: 12,
       label: 'Kirim',
@@ -92,6 +94,7 @@ class PengaturanView extends GetView<PengaturanController> {
 
   CardSettingsButton kirimPower() {
     return CardSettingsButton(
+      textColor: Colors.white,
       backgroundColor: Colors.green,
       bottomSpacing: 12,
       label: 'Kirim',
@@ -127,7 +130,6 @@ class PengaturanView extends GetView<PengaturanController> {
                     CardSettingsSection(
                       header: CardSettingsHeader(
                         label: controller.titleLabel[1],
-                        color: Colors.blueAccent,
                       ),
                       children: <CardSettingsWidget>[
                         Buzer(),
@@ -145,7 +147,7 @@ class PengaturanView extends GetView<PengaturanController> {
                     CardSettingsSection(
                       header: CardSettingsHeader(
                         label: controller.titleLabel[0],
-                        color: Colors.blueAccent,
+                        // color: Colors.blueAccent,
                       ),
                       children: <CardSettingsWidget>[
                         TimePickerPower(
@@ -166,7 +168,7 @@ class PengaturanView extends GetView<PengaturanController> {
                     CardSettingsSection(
                       header: CardSettingsHeader(
                         label: controller.titleLabel[2],
-                        color: Colors.blueAccent,
+                        // color: Colors.blueAccent,
                       ),
                       children: <CardSettingsWidget>[
                         _TimePicker('Waktu'),

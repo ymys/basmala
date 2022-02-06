@@ -55,7 +55,6 @@ class FixJadwalView extends GetView<FixJadwalController> {
                       CardSettingsSection(
                         header: CardSettingsHeader(
                           label: controller.fix[index],
-                          color: Colors.blueAccent,
                         ),
                         children: <CardSettingsWidget>[
                           _switchTile(index, controller.enable[index]),

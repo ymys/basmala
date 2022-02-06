@@ -25,11 +25,11 @@ void main() {
 ThemeData _buildTheme() {
   return ThemeData(
     primaryColor: Colors.teal, // app header background
-    secondaryHeaderColor: Colors.indigo[400], // card header background
+    secondaryHeaderColor: Colors.blueAccent, // card header background
     cardColor: Colors.white, // card field background
     backgroundColor: Colors.indigo[100], // app background color
     textTheme: TextTheme(
-      button: TextStyle(color: Colors.deepPurple[900]), // button text
+      // button: TextStyle(color: Colors.deepPurple[900]), // button text
       subtitle1: TextStyle(color: Colors.grey[800]), // input text
       headline6: TextStyle(color: Colors.white), // card header text
     ),
@@ -55,10 +55,9 @@ ThemeData _buildTheme() {
         ),
 
         backgroundColor: MaterialStateProperty.all<Color>(
-            // Colors.indigo), // button background color
             Colors.transparent), // button background color
-        foregroundColor:
-            MaterialStateProperty.all<Color>(Colors.white), // button text color
+        // foregroundColor:
+        //     MaterialStateProperty.all<Color>(Colors.white), // button text color
       ),
     ),
     primaryTextTheme: TextTheme(
@@ -69,6 +68,7 @@ ThemeData _buildTheme() {
     ),
     // fontFamily: GoogleFonts.getFont('Paprika').fontFamily,
     cardTheme: CardTheme(
+      // shadowColor: Colors.pink,
       shape: RoundedRectangleBorder(
         side: BorderSide(width: 1, color: Colors.blueGrey),
         borderRadius: BorderRadius.circular(10),
