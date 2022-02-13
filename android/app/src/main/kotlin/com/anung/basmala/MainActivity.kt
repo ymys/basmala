@@ -1,4 +1,4 @@
-package com.anung.basmalla
+package com.anung.basmala
 
 import io.flutter.embedding.android.FlutterActivity
 
